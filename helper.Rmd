@@ -18,12 +18,99 @@ procesados  <- file.path( "F:", "CERES2", "PREGVAL", "1-DATOS",
                           "3-PROCESADOS")
 ```
 
+# load samples
+
 ```{r}
 # Load a sample of the source tables-----------------------------------------
-sip <- fread_sip(file.path(procesados, "sip.csv"))
-pcv <-
-cex <-   
+sip <- fread(file.path(procesados, "sip.csv"), nrows = 100)
+pcv <- fread(file.path(procesados, "pcv.csv"), nrows = 100)
+cex <- fread(file.path(procesados, "cex.csv"), nrows = 100)   
   
 
 ```
 
+# sip
+
+```{r}
+# read sip file--------------------------------------------------------------
+fread_sip <- function(...){
+  data.table::fread(
+    encoding = "UTF-8",
+    colClasses = c(
+    sip                  = "character",
+    fecha_calculo        = "Date",
+    fecha_nacimiento     = "Date",
+    sexo                 = "character",
+    pais_nacimiento      = "character",
+    sit_empadronamiento  = "character",
+    derecho_farmacia     = "character",
+    dpto_salud           = "character",
+    zona_salud           = "character",
+    fecha_alta           = "Date",
+    fecha_baja           = "Date",
+    causa_baja           = "character",
+    fecha_defuncion      = "Date",
+    raf_ilimi            = "integer",
+    raf_ipago            = "character",
+    apsig                = "character"),
+    ...)
+}
+
+sip2 <- fread_sip(file.path(procesados, "sip.csv"), nrows = 100)
+
+```
+
+# pcv
+
+```{r}
+# read pcv file--------------------------------------------------------------
+fread_pcv <- function(...){
+  data.table::fread(
+    encoding = "UTF-8",
+    colClasses = c(
+    sip                  = "character",
+    fecha_consulta       = "Date",
+    serv_at_cod          = "character",
+    serv_at_desc         = "character",
+    diag_cod             = "character",
+    diag_desc            = "character",
+    tipo_codigo          = "character"),
+    ...)
+}
+ 
+pcv2 <- fread_pcv(file.path(procesados, "pcv.csv"), nrows = 100)    
+      
+
+```
+
+# cex
+
+```{r}
+# read pcv file--------------------------------------------------------------
+fread_cex <- function(...){
+  data.table::fread(
+    encoding = "UTF-8",
+    colClasses = c(
+    sip                = "character",
+    fecha_consulta     = "Date",
+    especialidad_cod   = "character",
+    especialidad_desc  = "character",
+    d1_cod             = "character",
+    d1_desc            = "character",
+    d2_cod             = "character",
+    d2_desc            = "character",
+    d3_cod             = "character",
+    d3_desc            = "character",
+    d4_cod             = "character",
+    d4_desc            = "character",
+    tipo_codigo1       = "character",
+    tipo_codigo2       = "character",
+    tipo_codigo3       = "character",
+    tipo_codigo4       = "character"),
+    ...)
+}
+ 
+cex2 <- fread_cex(file.path(procesados, "cex.csv"), nrows = 100)    
+      
+
+```
