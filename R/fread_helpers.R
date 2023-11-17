@@ -1,5 +1,12 @@
 
-# read sip file--------------------------------------------------------------
+#' Read a SIP file
+#'
+#' @param ... Other options passed to [data.table::fread()]
+#'
+#' @return a [data.table::fread()] function call
+#' @export
+#'
+#' @examples
 fread_sip <- function(...){
   data.table::fread(
     encoding = "UTF-8",
@@ -23,7 +30,14 @@ fread_sip <- function(...){
     ...)
   }
 
-# read pcv file--------------------------------------------------------------
+#' Read a PCV file
+#'
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 fread_pcv <- function(...){
   data.table::fread(
     encoding = "UTF-8",
