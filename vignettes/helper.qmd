@@ -12,6 +12,10 @@ library(data.table)
 
 ```
 
+# Introduction
+
+This file contain the process of programming the functions of the package
+
 ```{r}
 # Load path------------------------------------------------------------------
 procesados  <- file.path( "F:", "CERES2", "PREGVAL", "1-DATOS", 
