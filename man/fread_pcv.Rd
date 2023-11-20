@@ -7,8 +7,15 @@
 fread_pcv(...)
 }
 \arguments{
-\item{...}{}
+\item{...}{Other options passed on to \code{\link[data.table:fread]{data.table::fread()}}.}
+}
+\value{
+Returns a PCV data table read using \code{\link[data.table:fread]{data.table::fread()}} function call.
 }
 \description{
-Read a PCV file
+This function reads a PCV (Primary Care Visits) table written as a CSV file using \code{\link[data.table:fread]{data.table::fread()}} and allows additional
+parameters to be passed to \code{fread()}.
+}
+\seealso{
+\code{\link[data.table:fread]{data.table::fread()}} for the underlying functionality.
 }

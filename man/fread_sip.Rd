@@ -7,7 +7,7 @@
 fread_sip(...)
 }
 \arguments{
-\item{...}{Other options passed to \code{\link[data.table:fread]{data.table::fread()}}}
+\item{...}{Other options passed on to \code{\link[data.table:fread]{data.table::fread()}}}
 }
 \value{
 a \code{\link[data.table:fread]{data.table::fread()}} function call

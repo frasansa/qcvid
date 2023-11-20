@@ -1,12 +1,11 @@
 
 #' Read a SIP file
 #'
-#' @param ... Other options passed to [data.table::fread()]
+#' @param ... Other options passed on to [data.table::fread()]
 #'
 #' @return a [data.table::fread()] function call
 #' @export
 #'
-#' @examples
 fread_sip <- function(...){
   data.table::fread(
     encoding = "UTF-8",
@@ -32,12 +31,15 @@ fread_sip <- function(...){
 
 #' Read a PCV file
 #'
-#' @param ...
+#' This function reads a PCV (Primary Care Visits) table written as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
 #'
-#' @return
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a PCV data table read using [data.table::fread()] function call.
 #' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
 #'
-#' @examples
 fread_pcv <- function(...){
   data.table::fread(
     encoding = "UTF-8",
