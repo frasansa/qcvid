@@ -14,7 +14,7 @@ Returns a AED data table read using \code{\link[data.table:fread]{data.table::fr
 function call with the correct types of columns.
 }
 \description{
-This function reads a AED (ccident & Emergency Department record) table written
+This function reads a AED (Accident & Emergency Department) table written
 as a CSV file using \code{\link[data.table:fread]{data.table::fread()}} and allows additional
 parameters to be passed to \code{fread()}.
 }

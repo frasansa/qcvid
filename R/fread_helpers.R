@@ -205,7 +205,7 @@ fread_mbds <- function(...){
 
 #' Read a AED file
 #'
-#' This function reads a AED (ccident & Emergency Department record) table written
+#' This function reads a AED (Accident & Emergency Department) table written
 #' as a CSV file using [data.table::fread()] and allows additional
 #' parameters to be passed to `fread()`.
 #'
@@ -239,15 +239,15 @@ fread_aed <- function(...){
     ...)
 }
 
-#' Read a AED file
+#' Read a DIAGNOSES file
 #'
-#' This function reads a AED (Accident & Emergency Department record) table written
+#' This function reads a DIAGNOSES (Historical Diagnoses) table written
 #' as a CSV file using [data.table::fread()] and allows additional
 #' parameters to be passed to `fread()`.
 #'
 #' @param ... Other options passed on to [data.table::fread()].
 #'
-#' @return Returns a AED data table read using [data.table::fread()]
+#' @return Returns a DIAGNOSES data table read using [data.table::fread()]
 #' function call with the correct types of columns.
 #' @export
 #' @seealso [data.table::fread()] for the underlying functionality.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fread_helpers.R
 \name{fread_diagnoses}
 \alias{fread_diagnoses}
-\title{Read a AED file}
+\title{Read a DIAGNOSES file}
 \usage{
 fread_diagnoses(...)
 }
@@ -10,11 +10,11 @@ fread_diagnoses(...)
 \item{...}{Other options passed on to \code{\link[data.table:fread]{data.table::fread()}}.}
 }
 \value{
-Returns a AED data table read using \code{\link[data.table:fread]{data.table::fread()}}
+Returns a DIAGNOSES data table read using \code{\link[data.table:fread]{data.table::fread()}}
 function call with the correct types of columns.
 }
 \description{
-This function reads a AED (Accident & Emergency Department record) table written
+This function reads a DIAGNOSES (Historical Diagnoses) table written
 as a CSV file using \code{\link[data.table:fread]{data.table::fread()}} and allows additional
 parameters to be passed to \code{fread()}.
 }
