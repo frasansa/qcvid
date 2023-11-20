@@ -7,11 +7,17 @@
 fread_sip(...)
 }
 \arguments{
-\item{...}{Other options passed on to \code{\link[data.table:fread]{data.table::fread()}}}
+\item{...}{Other options passed on to \code{\link[data.table:fread]{data.table::fread()}}.}
 }
 \value{
-a \code{\link[data.table:fread]{data.table::fread()}} function call
+Returns a SIP data table read using \code{\link[data.table:fread]{data.table::fread()}}
+function call with the correct types of columns.
 }
 \description{
-Read a SIP file
+This function reads a SIP (Population Information System) table written
+as a CSV file using \code{\link[data.table:fread]{data.table::fread()}} and allows additional
+parameters to be passed to \code{fread()}.
+}
+\seealso{
+\code{\link[data.table:fread]{data.table::fread()}} for the underlying functionality.
 }

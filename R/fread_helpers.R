@@ -1,10 +1,16 @@
 
 #' Read a SIP file
 #'
-#' @param ... Other options passed on to [data.table::fread()]
+#' This function reads a SIP (Population Information System) table written
+#' as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
 #'
-#' @return a [data.table::fread()] function call
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a SIP data table read using [data.table::fread()]
+#' function call with the correct types of columns.
 #' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
 #'
 fread_sip <- function(...){
   data.table::fread(
@@ -31,12 +37,14 @@ fread_sip <- function(...){
 
 #' Read a PCV file
 #'
-#' This function reads a PCV (Primary Care Visits) table written as a CSV file using [data.table::fread()] and allows additional
+#' This function reads a PCV (Primary Care Visits) table written
+#' as a CSV file using [data.table::fread()] and allows additional
 #' parameters to be passed to `fread()`.
 #'
 #' @param ... Other options passed on to [data.table::fread()].
 #'
-#' @return Returns a PCV data table read using [data.table::fread()] function call.
+#' @return Returns a PCV data table read using [data.table::fread()]
+#' function call with the correct types of columns.
 #' @export
 #' @seealso [data.table::fread()] for the underlying functionality.
 #'
@@ -54,7 +62,19 @@ fread_pcv <- function(...){
     ...)
 }
 
-# read cex file--------------------------------------------------------------
+#' Read a CEX file
+#'
+#' This function reads a CEX (Specialist Care Visits) table written
+#' as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
+#'
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a CEX data table read using [data.table::fread()]
+#' function call with the correct types of columns.
+#' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
+#'
 fread_cex <- function(...){
   data.table::fread(
     encoding = "UTF-8",
@@ -78,7 +98,19 @@ fread_cex <- function(...){
     ...)
 }
 
-# read mbds file-------------------------------------------------------------
+#' Read a MBDS file
+#'
+#' This function reads a MBDS (Minimum Basic Data Set for hospital admissions) table written
+#' as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
+#'
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a MBDS data table read using [data.table::fread()]
+#' function call with the correct types of columns.
+#' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
+#'
 fread_mbds <- function(...){
   data.table::fread(
     encoding = "UTF-8",
@@ -171,7 +203,19 @@ fread_mbds <- function(...){
     ...)
 }
 
-# read aed file--------------------------------------------------------------
+#' Read a AED file
+#'
+#' This function reads a AED (ccident & Emergency Department record) table written
+#' as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
+#'
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a AED data table read using [data.table::fread()]
+#' function call with the correct types of columns.
+#' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
+#'
 fread_aed <- function(...){
   data.table::fread(
     encoding = "UTF-8",
@@ -195,7 +239,19 @@ fread_aed <- function(...){
     ...)
 }
 
-# read diagnoses file--------------------------------------------------------
+#' Read a AED file
+#'
+#' This function reads a AED (Accident & Emergency Department record) table written
+#' as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
+#'
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a AED data table read using [data.table::fread()]
+#' function call with the correct types of columns.
+#' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
+#'
 fread_diagnoses <- function(...){
   data.table::fread(
     encoding = "UTF-8",
@@ -209,7 +265,19 @@ fread_diagnoses <- function(...){
     ...)
 }
 
-# read mdr file--------------------------------------------------------------
+#' Read a MDR file
+#'
+#' This function reads a MDR (Metabolic Diseases Register) table written
+#' as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
+#'
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a MDR data table read using [data.table::fread()]
+#' function call with the correct types of columns.
+#' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
+#'
 fread_mdr <- function(...){
   data.table::fread(
     encoding = "UTF-8",
@@ -224,7 +292,19 @@ fread_mdr <- function(...){
     ...)
 }
 
-# read pmr file--------------------------------------------------------------
+#' Read a PMR file
+#'
+#' This function reads a PMR (Perinatal Mortality Register) table written
+#' as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
+#'
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a PMR data table read using [data.table::fread()]
+#' function call with the correct types of columns.
+#' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
+#'
 fread_pmr <- function(...){
   data.table::fread(
     encoding = "UTF-8",
@@ -255,7 +335,19 @@ fread_pmr <- function(...){
     ...)
 }
 
-# read eos file--------------------------------------------------------------
+#' Read a EOS file
+#'
+#' This function reads a EOS (Electronic Obstetric Sheet) table written
+#' as a CSV file using [data.table::fread()] and allows additional
+#' parameters to be passed to `fread()`.
+#'
+#' @param ... Other options passed on to [data.table::fread()].
+#'
+#' @return Returns a EOS data table read using [data.table::fread()]
+#' function call with the correct types of columns.
+#' @export
+#' @seealso [data.table::fread()] for the underlying functionality.
+#'
 fread_eos <- function(...){
   data.table::fread(
     encoding = "UTF-8",
