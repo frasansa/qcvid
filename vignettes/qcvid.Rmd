@@ -1,0 +1,601 @@
+---
+title: "qcvid"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{qcvid}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = FALSE,
+  comment = "#>"
+)
+
+```
+
+```{r setup}
+library(qcvid)
+
+```
+
+This package contains `data.table::fread` helpers, which specify the type of columns (Integer, Date, etc.) for the following tables: **SIP**, **PCV**, **CEX**, **MBDS**, **AED**, **DIAGNOSES**, **MDR**, **PMR** and **EOS**.
+
+# SIP
+
+```{r}
+# read sip file--------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip",                  "character",
+  "fecha_calculo",        "Date",
+  "fecha_nacimiento",     "Date",
+  "sexo",                 "character",
+  "pais_nacimiento",      "character",
+  "sit_empadronamiento",  "character",
+  "derecho_farmacia",     "character",
+  "dpto_salud",           "character",
+  "zona_salud",           "character",
+  "fecha_alta",           "Date",
+  "fecha_baja",           "Date",
+  "causa_baja",           "character",
+  "fecha_defuncion",      "Date",
+  "raf_ilimi",            "integer",
+  "raf_ipago",            "character",
+  "apsig",                "character"
+) |> gt::gt(id = "sip") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #sip tr:hover {
+    background-color: #f2cce4;
+    }
+    ")
+
+```
+
+<br>
+
+# PCV
+
+```{r}
+# read pcv file--------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip",                  "character",
+  "fecha_consulta",       "Date",
+  "serv_at_cod",          "character",
+  "serv_at_desc",         "character",
+  "diag_cod",             "character",
+  "diag_desc",            "character",
+  "tipo_codigo",          "character"
+) |> gt::gt(id = "pcv") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #pcv tr:hover {
+    background-color: #f2cce4;
+    }
+    ")
+
+```
+
+<br>
+
+# CEX
+
+```{r}
+# read cex file--------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip",                  "character",
+  "fecha_consulta",       "Date",
+  "especialidad_cod",     "character",
+  "especialidad_desc",    "character",
+  "d1_cod",               "character",
+  "d1_desc",              "character",
+  "d2_cod",               "character",
+  "d2_desc",              "character",
+  "d3_cod",               "character",
+  "d3_desc",              "character",
+  "d4_cod",               "character",
+  "d4_desc",              "character",
+  "tipo_codigo1",         "character",
+  "tipo_codigo2",         "character",
+  "tipo_codigo3",         "character",
+  "tipo_codigo4",         "character"
+) |> gt::gt(id = "cex") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #cex tr:hover {
+    background-color: #f2cce4;
+    }
+    ")
+
+```
+
+<br>
+
+# MBDS
+
+```{r}
+# read mbds file-------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip",              "character",
+  "fecha_ingreso",      "Date",
+  "fecha_alta",         "Date",
+  "dpto_cod",           "character",
+  "hosp_cod",           "integer",
+  "serv_ing_cod",       "character",
+  "serv_ing_desc",      "character",
+  "tipo_activ",         "character",
+  "circ_ing_cod",       "integer",
+  "circ_ing_desc",      "character",
+  "circ_alta_cod",      "integer",
+  "circ_alta_desc",     "character",
+  "d1",                 "character",
+  "d2",                 "character",
+  "d3",                 "character",
+  "d4",                 "character",
+  "d5",                 "character",
+  "d6",                 "character",
+  "d7",                 "character",
+  "d8",                 "character",
+  "d9",                 "character",
+  "d10",                "character",
+  "d11",                "character",
+  "d12",                "character",
+  "d13",                "character",
+  "d14",                "character",
+  "d15",                "character",
+  "d16",                "character",
+  "d17",                "character",
+  "d18",                "character",
+  "d19",                "character",
+  "d20",                "character",
+  "d21",                "character",
+  "d22",                "character",
+  "d23",                "character",
+  "d24",                "character",
+  "d25",                "character",
+  "d26",                "character",
+  "d27",                "character",
+  "d28",                "character",
+  "d29",                "character",
+  "d30",                "character",
+  "p1",                 "character",
+  "p2",                 "character",
+  "p3",                 "character",
+  "p4",                 "character",
+  "p5",                 "character",
+  "p6",                 "character",
+  "p7",                 "character",
+  "p8",                 "character",
+  "p9",                 "character",
+  "p10",                "character",
+  "p11",                "character",
+  "p12",                "character",
+  "p13",                "character",
+  "p14",                "character",
+  "p15",                "character",
+  "p16",                "character",
+  "p17",                "character",
+  "p18",                "character",
+  "p19",                "character",
+  "p20",                "character",
+  "p21",                "character",
+  "p22",                "character",
+  "p23",                "character",
+  "p24",                "character",
+  "p25",                "character",
+  "p26",                "character",
+  "p27",                "character",
+  "p28",                "character",
+  "p29",                "character",
+  "p30",                "character",
+  "tipo_codigo",        "character",       
+  "fecha_parto",        "Date",            
+  "parto_multiple",     "integer",          
+  "semana_gest",        "integer",       
+  "peso1",              "integer", 
+  "sexo1",              "character", 
+  "peso2",              "integer", 
+  "sexo2",              "character", 
+  "peso3",              "integer", 
+  "sexo3",              "character", 
+  "ind_uci",            "integer",   
+  "estancias_uci",      "integer",         
+  "d_semana_gest",      "character"
+) |> gt::gt(id = "mbds") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #mbds tr:hover {
+    background-color: #f2cce4;
+    }
+    ")
+
+```
+
+<br>
+
+# AED
+
+```{r}
+# read aed file--------------------------------------------------------------
+# read sip file--------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip",                  "character",
+  "fecha_registro",       "Date",
+  "fecha_alta",           "Date",
+  "dpto_cod",             "integer",
+  "centro_cod",           "integer",
+  "circ_alta_cod",        "integer",
+  "circ_alta_desc",       "character",
+  "motivo_urg_cod",       "integer",
+  "motivo_urg_desc",      "character",
+  "diag_cod",             "character",
+  "diag2_cod",            "character",
+  "prioridad_cod",        "integer",
+  "prioridad_desc",       "character",
+  "tipo_codigo1",         "character",
+  "tipo_codigo2",         "character"
+) |> gt::gt(id = "aed") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #aed tr:hover {
+    background-color: #f2cce4;
+    }
+    ") 
+
+```
+
+<br>
+
+# DIAGNOSES
+
+```{r}
+# read diagnoses file--------------------------------------------------------
+# read sip file--------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip",                  "character",
+  "fecha_act",            "Date",
+  "fecha_desact",         "Date",
+  "diag_cod",             "character",
+  "diag_desc",            "character",
+  "tipo_codigo",          "character"
+) |> gt::gt(id = "diagnoses") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #diagnoses tr:hover {
+    background-color: #f2cce4;
+    }
+    ")
+
+```
+
+<br>
+
+# MDR
+
+```{r}
+# read mdr file--------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip_madre",                 "character",
+  "sip_hijo",                  "character",
+  "fecha_nac_hijo",            "Date",
+  "semana_gest",               "integer",
+  "peso",                      "integer",
+  "edad_madre",                "integer",
+  "hospital_nacimiento_desc",  "character"
+) |> gt::gt(id = "mdr") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #mdr tr:hover {
+    background-color: #f2cce4;
+    }
+    ")
+
+```
+
+<br>
+
+# PMR
+
+```{r}
+# read pmr file--------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip",                  "character",
+  "fecha_nac_hijo",       "Date",
+  "fecha_muerte_hijo",    "Date",
+  "fecha_fin_emb",        "Date",
+  "tipo_muerte",          "character",
+  "semana_gest",          "integer",
+  "peso",                 "integer",
+  "d1",                   "character",
+  "d2",                   "character",
+  "d3",                   "character",
+  "d4",                   "character",
+  "d5",                   "character",
+  "d6",                   "character",
+  "d7",                   "character",
+  "d8",                   "character",
+  "d9",                   "character",
+  "d10",                  "character",
+  "causa_muerte",         "character",
+  "patologia_m1",         "character",
+  "patologia_m2",         "character",
+  "patologia_h1",         "character",
+  "patologia_h2",         "character",
+  "patologia_h3",         "character"
+) |> gt::gt(id = "pmr") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #pmr tr:hover {
+    background-color: #f2cce4;
+    }
+    ")
+
+```
+
+<br>
+
+# EOS
+
+```{r}
+# read eos file--------------------------------------------------------------
+tibble::tribble(
+  ~variable_name, ~colClass,
+  "sip",                  "character",
+  "embarazo_id",          "character",
+  "fecha_fin_emb",        "Date",
+  "semana_gest",          "integer",
+  "resultado_rn1",        "character",
+  "resultado_rn2",        "character",
+  "resultado_rn3",        "character",
+  "multiple_pregnancy",   "character"
+) |> gt::gt(id = "eos") |>  # need to name the table to apply CSS
+  gt::fmt_markdown(columns = everything()) |> 
+  gt::tab_style(
+      style = list(
+      gt::cell_text(weight = "bold")
+    ),
+    locations = gt::cells_body(columns = variable_name)
+  ) |> 
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "#9473d8"),
+      gt::cell_text(color = "white", align = "left", weight = "bold")
+    ),
+    locations = gt::cells_column_labels()) |> 
+  gt::opt_row_striping( row_striping = TRUE) |>
+   gt::tab_options(
+    container.height = "300px"
+  ) |>
+  gt::opt_css(
+    css = "
+    #eos tr:hover {
+    background-color: #f2cce4;
+    }
+    ") 
+
+
+```
+
+```{css, echo=FALSE}
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 64px;
+}
+
+h1.title {
+  font-size: 38px;
+  color: DarkRed;
+  text-align: center;
+}
+h4.author { /* Header 4 - and the author and data headers use this too  */
+    font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  color: DarkRed;
+  text-align: center;
+}
+h4.date { /* Header 4 - and the author and data headers use this too  */
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  color: DarkBlue;
+  text-align: center;
+}
+
+.blackbox {
+  padding: 1em;
+  background: LightPink;
+  color: black;
+  border: 2px orange;
+  border-radius: 10px;
+}
+.center {
+  text-align: center;
+}
+
+/*----------LOGO above TOC---------*/
+
+#TOC::before {
+  content: "";
+  display: block;
+  height: 200px;
+  margin: 10px 5px 10px 5px;
+  background-image: url("../inst/extdata/logo.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+body {
+  text-align: justify;
+}
+
+.table caption{
+  font-style: italic;
+  color: black;
+  text-align: left
+}
+
+div.figure {
+  display: table;
+  width: 100%;
+  font-style: italic;
+  color: black;
+}
+div.figure p {
+  display: table-caption;
+  caption-side: bottom;
+}
+
+.output {
+max-height: 200px;
+overflow-y: scroll;
+}
+
+```
+
+::: {.tocify-extend-page data-unique="tocify-extend-page" style="height: 0;"}
+:::
