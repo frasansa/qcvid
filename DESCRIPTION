@@ -12,4 +12,9 @@ RoxygenNote: 7.2.3
 URL: https://github.com/frasansa/qcvid
 BugReports: https://github.com/frasansa/qcvid/issues
 Imports: 
-    data.table
+    data.table,
+    gt
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
