@@ -44,31 +44,42 @@ tibble::tribble(
   "fecha_defuncion",      "Date",
   "raf_ilimi",            "integer",
   "raf_ipago",            "character",
-  "apsig",                "character"
-) |> gt::gt(id = "sip") |>  # need to name the table to apply CSS
+  "apsig",                "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "sip") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #sip tr:hover {
-    background-color: #f2cce4;
-    }
-    ")
+    background-color: #f2cce4;}
+    #sip thead{position: sticky; top:0;}")
 
 ```
 
@@ -86,31 +97,42 @@ tibble::tribble(
   "serv_at_desc",         "character",
   "diag_cod",             "character",
   "diag_desc",            "character",
-  "tipo_codigo",          "character"
-) |> gt::gt(id = "pcv") |>  # need to name the table to apply CSS
+  "tipo_codigo",          "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "pcv") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #pcv tr:hover {
-    background-color: #f2cce4;
-    }
-    ")
+    background-color: #f2cce4;}
+    #pcv thead{position: sticky; top:0;}")
 
 ```
 
@@ -137,31 +159,42 @@ tibble::tribble(
   "tipo_codigo1",         "character",
   "tipo_codigo2",         "character",
   "tipo_codigo3",         "character",
-  "tipo_codigo4",         "character"
-) |> gt::gt(id = "cex") |>  # need to name the table to apply CSS
+  "tipo_codigo4",         "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "cex") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #cex tr:hover {
-    background-color: #f2cce4;
-    }
-    ")
+    background-color: #f2cce4;}
+    #cex thead{position: sticky; top:0;}")
 
 ```
 
@@ -257,31 +290,42 @@ tibble::tribble(
   "sexo3",              "character", 
   "ind_uci",            "integer",   
   "estancias_uci",      "integer",         
-  "d_semana_gest",      "character"
-) |> gt::gt(id = "mbds") |>  # need to name the table to apply CSS
+  "d_semana_gest",      "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "mbds") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #mbds tr:hover {
-    background-color: #f2cce4;
-    }
-    ")
+    background-color: #f2cce4;}
+    #mbds thead{position: sticky; top:0;}")
 
 ```
 
@@ -291,7 +335,6 @@ tibble::tribble(
 
 ```{r}
 # read aed file--------------------------------------------------------------
-# read sip file--------------------------------------------------------------
 tibble::tribble(
   ~variable_name, ~colClass,
   "sip",                  "character",
@@ -308,31 +351,42 @@ tibble::tribble(
   "prioridad_cod",        "integer",
   "prioridad_desc",       "character",
   "tipo_codigo1",         "character",
-  "tipo_codigo2",         "character"
-) |> gt::gt(id = "aed") |>  # need to name the table to apply CSS
+  "tipo_codigo2",         "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "aed") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #aed tr:hover {
-    background-color: #f2cce4;
-    }
-    ") 
+    background-color: #f2cce4;}
+    #aed thead{position: sticky; top:0;}")
 
 ```
 
@@ -350,31 +404,42 @@ tibble::tribble(
   "fecha_desact",         "Date",
   "diag_cod",             "character",
   "diag_desc",            "character",
-  "tipo_codigo",          "character"
-) |> gt::gt(id = "diagnoses") |>  # need to name the table to apply CSS
+  "tipo_codigo",          "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "diagnoses") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #diagnoses tr:hover {
-    background-color: #f2cce4;
-    }
-    ")
+    background-color: #f2cce4;}
+    #diagnoses thead{position: sticky; top:0;}")
 
 ```
 
@@ -392,31 +457,42 @@ tibble::tribble(
   "semana_gest",               "integer",
   "peso",                      "integer",
   "edad_madre",                "integer",
-  "hospital_nacimiento_desc",  "character"
-) |> gt::gt(id = "mdr") |>  # need to name the table to apply CSS
+  "hospital_nacimiento_desc",  "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "mdr") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #mdr tr:hover {
-    background-color: #f2cce4;
-    }
-    ")
+    background-color: #f2cce4;}
+    #mdr thead{position: sticky; top:0;}")
 
 ```
 
@@ -450,31 +526,42 @@ tibble::tribble(
   "patologia_m2",         "character",
   "patologia_h1",         "character",
   "patologia_h2",         "character",
-  "patologia_h3",         "character"
-) |> gt::gt(id = "pmr") |>  # need to name the table to apply CSS
+  "patologia_h3",         "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "pmr") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #pmr tr:hover {
-    background-color: #f2cce4;
-    }
-    ")
+    background-color: #f2cce4;}
+    #pmr thead{position: sticky; top:0;}")
 
 ```
 
@@ -493,31 +580,42 @@ tibble::tribble(
   "resultado_rn1",        "character",
   "resultado_rn2",        "character",
   "resultado_rn3",        "character",
-  "multiple_pregnancy",   "character"
-) |> gt::gt(id = "eos") |>  # need to name the table to apply CSS
+  "multiple_pregnancy",   "character") |> 
+  # need to name the table to apply CSS
+  gt::gt(id = "eos") |>  
   gt::fmt_markdown(columns = everything()) |> 
+  # style first column
   gt::tab_style(
       style = list(
-      gt::cell_text(weight = "bold")
-    ),
-    locations = gt::cells_body(columns = variable_name)
-  ) |> 
+      gt::cell_text(weight = "bold")),
+    locations = gt::cells_body(columns = variable_name)) |> 
+  # style column labels
   gt::tab_style(
     style = list(
+      gt::cell_borders(weight = "0px"),
       gt::cell_fill(color = "#9473d8"),
-      gt::cell_text(color = "white", align = "left", weight = "bold")
-    ),
+      gt::cell_text(color = "white", 
+                    align = "left", weight = "bold")),
     locations = gt::cells_column_labels()) |> 
+  # add row_striping
   gt::opt_row_striping( row_striping = TRUE) |>
-   gt::tab_options(
-    container.height = "300px"
-  ) |>
+  # format options: scrolling, height, etc.
+  gt::tab_options(
+    container.height = "300px",
+    container.overflow.y = "scroll",
+    column_labels.padding = "10px",
+    # for improve the scrolling
+    container.padding.y = "0px",
+    column_labels.border.top.width = "0px",
+    column_labels.border.bottom.width = "0px",
+    column_labels.border.lr.width = "0px",
+    table.border.top.width = "0px",
+    table.border.bottom.width = "0px") |>
   gt::opt_css(
     css = "
     #eos tr:hover {
-    background-color: #f2cce4;
-    }
-    ") 
+    background-color: #f2cce4;}
+    #eos thead{position: sticky; top:0;}")
 
 
 ```
@@ -590,12 +688,9 @@ div.figure p {
   caption-side: bottom;
 }
 
-.output {
-max-height: 200px;
-overflow-y: scroll;
-}
-
 ```
+
+<br>
 
 ::: {.tocify-extend-page data-unique="tocify-extend-page" style="height: 0;"}
 :::
